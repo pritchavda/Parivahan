@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body style='border:0; margin: 0'>
+        <div id='map'></div>
+        <div class="formBlock">
+            <form id="form">
+                <input type="text" name="start" class="input" id="start" placeholder="Choose starting point" />
+                <input type="text" name="end" class="input" id="destination" placeholder="Choose starting point" />
+                <button style="display: none;" type="submit">Get Directions</button>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=ejkE6YgilawBuKjkNEg5w3w7JwIH4cAE"></script>
+        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=ejkE6YgilawBuKjkNEg5w3w7JwIH4cAE"></script>
+        <script src="/js/app.js"></script>
+    </body>
+    <script>
+        // const L= any; 
+        console.log('this is my log');
+        if (!navigator.geolocation) {
+            console.log("your Brouser Doesn`t support geolocaion feature!");
+        }else{
+            // navigator.geolocation.getCurrentPosition((postion)=>{
+            //     console.log(`lat:${postion.coords.latitude},lng:${postion.coords.longitude}`);
+            // });
+            let desLat = 0;
+            let deslng = 0;
+    
+            let id =  navigator.geolocation.watchPosition((postion)=>{
+            console.log(`lat:${postion.coords.latitude},lng:${postion.coords.longitude}`);  
+            let letlng = (postion.coords.latitude,postion.coords.longitude);
+       
+            
+            if (postion.coords.latitude === desLat) {
+                navigator.geolocation.clearWatch(id);
+            }
+            },(err)=>{
+                console.log(err);
+            },
+            {
+                enableHighAccuracy:true,
+                timeout:5000,
+                maximumAge:0
+            }); 
+        };
+    
+    </script>
+</html>

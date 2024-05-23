@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewDMap">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mmMap"
+        android:layout_above="@+id/customerInfo">
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttons">
+            <Button
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginLeft="7dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/logout"
+                android:text="Log Out"
+                android:background="@drawable/calluberbtn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17dp">
+
+            </Button>
+
+            <Button   android:layout_weight="1"
+                android:layout_width="0dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:layout_alignParentRight="true"
+
+                android:layout_height="wrap_content"
+                android:id="@+id/history"
+                android:text="History"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="right"
+                android:background="@drawable/calluberbtn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp">
+
+            </Button>
+
+            <Button
+                android:id="@+id/setting"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/calluberbtn"
+                android:paddingLeft="20dp"
+                android:paddingTop="2dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="2dp"
+                android:text="@string/setting"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20dp">
+
+            </Button>
+        </LinearLayout>
+
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content">-->
+        <!--                <Button-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:id="@+id/logout"-->
+        <!--                    android:text="@string/logout">-->
+        <!--                </Button>-->
+        <!--                <Button-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:id="@+id/history"-->
+        <!--                    android:layout_gravity="end"-->
+        <!--                    android:text="@string/history">-->
+        <!--                </Button>-->
+        <!--                <Button-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:layout_weight="1"-->
+        <!--                    android:id="@+id/setting"-->
+        <!--                    android:layout_gravity="end"-->
+        <!--                    android:text="@string/setting">-->
+        <!--                </Button>-->
+
+        <!--            </LinearLayout>-->
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Working"
+            android:textColor="@color/maincolor"
+            android:theme="@style/customAppTheme"
+            android:layout_margin="10sp"
+            android:id="@+id/WorkingSwitch"
+            android:buttonTint="@color/maincolor"/>
+        <!--            </LinearLayout>-->
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/customerInfo"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            android:paddingTop="10dp"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/newshap" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom">
+                <!--            <ImageView-->
+                <!--                android:layout_width="100sp"-->
+                <!--                android:layout_height="100sp"-->
+                <!--                android:id="@+id/customerProfileImage"-->
+                <!--                android:src="@mipmap/ic_launcher"-->
+                <!--                android:padding="20sp"/>-->
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_marginLeft="25dp"
+                    android:id="@+id/customerProfileImage"
+                    android:layout_width="100sp"
+                    android:layout_height="100sp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_launcher"
+                    map:civ_border_color="#fff"
+                    map:civ_border_width="10dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="20sp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10sp"
+                        android:text="Destination: --"
+                        android:textSize="15dp"
+                        android:id="@+id/customerDestination"
+                        android:textStyle="bold"/>
+                    <!--                        android:id="@+id/driverCar"-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/customerName"
+                        android:paddingTop="20sp"
+                        android:paddingBottom="10sp"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        android:text="chavda prit"/>
+                    <TextView
+                        android:id="@+id/customerPhone"
+                        android:paddingBottom="10sp"
+                        android:paddingTop="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:text="6356252512"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="pickup Customer"
+                android:id="@+id/rideStatus"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:background="@drawable/driverhere"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

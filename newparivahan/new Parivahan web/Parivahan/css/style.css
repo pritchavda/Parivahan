@@ -1,0 +1,47 @@
+#map {
+    height:85vh;
+    width: 100%;
+    /* position: relative; */
+}
+
+.formBlock {
+    max-width: 300px;
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    padding: 20px;
+    z-index: 999;
+    box-shadow: 0 1px 5px rgba(54,54,54,0.30);
+    /* box-shadow: 0 1px 5px #fec842; */
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* .leaflet-control {
+    margin-top: 180px;
+    
+} */
+.leaflet-top{
+    margin-top: 70vh;
+}
+.leaflet-left{
+    margin-left: 95vw;
+}
+
+.input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+#form {
+    padding: 0;
+    margin: 0;
+}
+input:nth-child(1) {
+    margin-bottom: 10px;
+}

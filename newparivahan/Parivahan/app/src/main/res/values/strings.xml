@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Parivahan</string>
+    <string name="title_activity_new_dmap">NewDMap</string>
+    <string name="title_activity_new_cmap">NewCMap</string>
+    <string name="logout">LogOut</string>
+    <string name="setting">setting</string>
+    <string name="destination">destination: --</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_new_cmap2">NewCMap2</string>
+    <string name="api_key">AIzaSyDc3xmvUHE0Vv8sVKjwZHi26QoAF1ILI7o</string>
+    <string name="history">History</string>
+</resources>

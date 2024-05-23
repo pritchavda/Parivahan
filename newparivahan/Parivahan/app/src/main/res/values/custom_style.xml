@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="customAppTheme" parent="Theme.AppCompat">
+        <item name="android:textColorPrimaryDisableOnly">#00838f</item>
+        <item name="colorAccent">#ffba41</item>
+    </style>
+</resources>

@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wecome Page</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Routing/leaflet-routing-machine.css" />
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
+    ></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+    type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+    type="text/javascript" charset="utf-8"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=ejkE6YgilawBuKjkNEg5w3w7JwIH4cAE"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=ejkE6YgilawBuKjkNEg5w3w7JwIH4cAE"></script>
+
+
+    <!-- new added -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/customermapm.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/drivermap.css">
+    <script src="../Routing/leaflet-routing-machine.js"></script>
+    
+
+
+    <style>
+        /* body{
+            margin: 0;
+            padding: 0;
+        }
+        #map{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+        .divlogout{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        } */
+        .namee{
+            position: absolute;
+            top: 200px;
+        }
+        .divlogout{
+            position: absolute;
+            z-index: 999;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+
+</head>
+<body style="overflow:hidden;">
+    <div class="navbar">
+        <div class="navcont2">
+            <div class="navlogo2">
+                <img src="../img/parivahan logo.png" alt="">
+            </div>
+            <div class="nav">
+                <ul class="navul">
+                    <li class="navli"><a href="AboutUs.html" class="nava">About Us</a></li>
+                    <li class="navli"><a href="ContectUs.html" class="nava">Contact Us</a></li>
+                    <li class="navli"><a href="p-flit.html" class="nava">P-fleet</a></li>
+                    <button id="userInfoBtn" class="gotoconsole navbtn" style="display: none;">UserInfo</button>
+                    <button id="logOut" class="gotoconsole navbtn">Logout</button>
+                    <button id="history" class="gotoconsole navbtn"><a href="historydriver.html" style="color: #fec842; margin-bottom: 20px;" >History</a></button>
+                    <button id="setting" class=" gotoconsole navbtn">Setting</button>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div> 
+    <div class="formBlock">
+        <form id="form">
+            <input type="text" name="start" class="input" id="start" placeholder="Choose starting point" />
+            <input type="text" name="end" class="input" id="destination" placeholder="Choose starting point" />
+            <button id="submitGoTo" class="Mapbtn" type="submit">Get Directions</button>
+        </form>
+    </div>
+    <div id="demoInfo">
+    <div id="userInfof">
+        <div id="userInfo">
+            <img id="CustomerImg" style="width: 125px; height: 125px; border-radius: 50%; padding: 10px; border: 2px solid #fec842;" src="" height="96px" width="96px" alt="">
+            <p id="CustomerName" class="formclassinput"></p>
+            <p id="CustomerPhone" class="formclassinput"></p>
+        </div>
+    </div>
+</div> 
+    <div class="customerPd">
+        <button id="pickupC" class="pikdro pik" style="display: none;" ><img src="../img/pick up.png" alt=""></button>
+        <button id="dropupC" class="pikdro dro" style="display: none;"><img src="../img/drop up.png" alt=""></button>
+    </div>
+    <div class="divlogout">
+        <!-- <button id="userInfoBtn" class="btn btn-danger" style="display: none;">UserInfo</button> -->
+        <!-- <button id="logOut" class="btn btn-danger">Logout</button>
+        <button id="history" class="btn btn-danger">History</button>
+        <button id="setting" class="btn btn-danger">Setting</button> -->
+    </div>
+    
+
+    <div id="settingf">
+        <form  method="post" class="settingform">
+            <!-- <label for="userImg">
+                <img src="../img/blue.png" alt="" width="100" height="100" style="cursor: pointer;">
+            </label> -->
+            <!-- <img src="../img/blue.png" id="userImg" alt="" width="100" height="100" style="height: 50px; width: 50px; cursor: pointer; border: 2px solid black;"> -->
+            <!-- <input type="image" id="userImg" style="display: none;"> -->
+            <label for="userImg2">
+                <img src="../img/blue.png" id="userImgL" style="width: 125px; height: 125px; border-radius: 50%; padding: 10px; border: 2px solid #fec842;" width="100" height="100">
+            </label>
+            <input type="text" id="userCar" class="driverinfo formclassinput" placeholder="Car Name">
+            <input type="file" id="userImg2"  placeholder="DriverImg" style="display: none;">
+            <input type="text" id="userName" class="driverinfo formclassinput" placeholder="Name">
+            <input type="tel" id="userPhone" class="driverinfo formclassinput" placeholder="Phone" maxlength="10" minlength="10">
+            <div id="servicesss" class="radioservices">
+                <input type="radio" id="UberX" name="selectCar" value="UberX" checked>UberX
+                <input type="radio" id="UberBlack" name="selectCar" value="UberBlack">UberBlack
+                <input type="radio" id="UberXl" name="selectCar" value="UberXl">UberXl
+            </div>
+            <input type="number" id="person" placeholder="Member Parsing" name="personname" min="1" max="7">
+            <input type="number" id="totalPerson" placeholder="TOtalperson" name="Totalperson" min="1" max="7" style="display: none;">
+            <!-- <input type="text" placeholder="Name"> -->
+            <button id="submit" class="submitcustoinfo">Submit</button>
+        </form>
+    </div>
+</body>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+<script src="../js/jquery-latest.min.js"></script>
+
+<script>
+    function usersharfuctnion() {
+      var userShare = document.getElementById('userShare');
+          var person = document.getElementById('person');
+          if (userShare.checked == true) {
+              // alert('chackbox is chacked');
+              person.style.display="inline";
+          }   
+          if (userShare.checked == false) {
+              // alert('chackbox is chacked');
+              person.style.display="none";
+          }   
+  }
+  document.getElementById('servicesss').addEventListener('click',(e)=>{
+      servicess();
+  })
+  servicess();
+  function servicess() {
+    var ele = document.getElementsByName('selectCar');
+			for(var i = 0; i < ele.length; i++) {
+				if(ele[i].checked)
+                var service = ele[i].value;
+			}
+            var serviseval = document.getElementById('person');
+            if (service == 'UberX') {
+                serviseval.style.display="none";
+            }
+            else{
+                serviseval.style.display="inline";
+            }
+      
+  }
+</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
+    import { getDatabase, set, ref, update,get,child,onValue,remove,onChildAdded, onChildChanged, onChildRemoved,push } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-auth.js";
+    import { getStorage, ref as sRef , uploadBytesResumable, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.6.5/firebase-storage.js";
+
+    import Geohash from 'https://cdn.jsdelivr.net/gh/chrisveness/latlon-geohash/latlon-geohash.js';
+
+    // import { createRequire } from 'module'; // <------ trick to get a require function
+    // const require = createRequire(import.meta.url);
+    
+    // Initialize Firebase
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDzU2LsVytDkMXwCidTmO-E4-Xbg62Mdb0",
+      authDomain: "parivahan-f7413.firebaseapp.com",
+      databaseURL: "https://parivahan-f7413-default-rtdb.firebaseio.com",
+      projectId: "parivahan-f7413",
+      storageBucket: "parivahan-f7413.appspot.com",
+      messagingSenderId: "127872997898",
+      appId: "1:127872997898:web:1910d19b13d17210fb9df3",
+      measurementId: "G-7VFN151RC8"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    const user = auth.currentUser;
+    const dbRef = ref(getDatabase());
+    const db = getDatabase();
+    var files = [];
+    var reader = new FileReader();
+    const seturl = "";
+    var progress;
+    var customerRideId;
+    var destination;
+    var destinationLat;
+    var destinaionLng;
+    var pickloction;
+    var driverAvAo;
+    var multiuser;
+
+
+    $(document).ready(function() {
+        $("#userInfoBtn").click(function() {
+            $("#userInfof").toggle();
+        });
+    });
+   
+        $(document).ready(function() {
+        $("#setting").click(function() {
+            $("#settingf").toggle();
+        });
+    });   
+   
+    multiuser = true;
+
+    logOut.addEventListener("click",(event)=>{
+
+        
+        signOut(auth).then(() => {
+        // Sign-out successful.
+            location.replace("index.html");
+        }).catch((error) => {
+        // An error happened.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage)
+        });
+    })
+    userInfoBtn.addEventListener("click",(event)=>{
+        console.log("click to user info");
+    })
+
+     function GetFileName(file) {
+            var temp = file.name.split('.');
+            var fname = temp.slice(0,-1).join('.');
+            return fname;         
+     }
+     function GetFileExt(file) {
+            var temp = file.name.split('.');
+            var ext = temp.slice((temp.length-1),(temp.length))
+            return '.'+ext[0];
+     }
+     userImgL.addEventListener("click",(event)=>{
+    })
+    userImg2.onchange = e=>{
+        files = e.target.files;
+        var extention = GetFileExt(files[0]);
+        var name = GetFileName(files[0]);
+        
+        console.log(name);
+        console.log("ext =",extention);
+        
+        reader.readAsDataURL(files[0]);
+    }
+    reader.onload = function(){
+        userImgL.src = reader.result;
+    }
+
+    //   ------------------------------------- Uplod Img new ------------------------//
+    async function UploadProcess(userName,userPhone,userCar,selectCar,personn,totalPerson){
+        var ImgToUpload = files[0];
+        // var ImgName = namebox.value + 
+        const metaData = {
+            // contentType: ImgToUpload.type
+            contentType: 'image/jpeg'
+        }
+        // var iimgname = GetFileName(files[0]);
+        // var extName = GetFileExt(files[0]);
+        // var ImageName = iimgname + extName;
+        // const storage = getStorage;
+        const storage = getStorage();
+        // const storageref = ref(storage,"profile_Image/"+ImageName);
+        const user = auth.currentUser;
+                onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                            const mountainsRef = sRef(storage,"profile_Image/"+user.uid);
+                            const UploadTask = uploadBytesResumable(mountainsRef,ImgToUpload,metaData);
+
+
+                            UploadTask.on('state-changed',(snapshot)=>{
+                    progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    console.log(progress+ '%');
+                        },(error)=>{
+                            alert("error:image not uploded! successfuly")
+                        },()=>{
+                            if (files[0]) {
+                                console.log(files[0]);
+                                console.log("file is avelable");
+                                getDownloadURL(UploadTask.snapshot.ref).then((downlodUrl)=>{
+                                console.log(downlodUrl);
+                                // console.log("log prosess"+ progress);
+
+                                    if (user) {
+                                        set(ref(database, 'Users/'+'Drivers/'+ user.uid),{
+                                            email: user.email,
+                                            car: userCar,
+                                            name: userName,
+                                            phone: userPhone,
+                                            profileImageUrl: downlodUrl,
+                                            service: selectCar,
+                                            person:person,
+                                            totalP:totalPerson
+                                        })
+                                        // set(ref(database, 'Users/'+'Drivers/'+ user.uid+"/"+"google"),{
+                                        //     name: "llb",
+                                        //     profileImageUrl: downlodUrl
+                                        // })
+
+                                    }
+                                })
+                            }
+       
+                })
+                }
+            })
+    }
+    // ------------------------------Not uplod img ---------------------------------//
+
+    async function NotUploadProcess(userName,userPhone,userCar,selectCar,personn,totalPerson){ 
+                onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                                var downlod = "";
+                                console.log("file is not avelable");
+                                get(child(dbRef, `Users/Drivers/${user.uid}`)).then((snapshot) => {
+                                    if (snapshot.exists()) {
+                                        downlod = snapshot.val().profileImageUrl;
+                                        console.log("file url",downlod);
+                                        console.log(selectCar);
+                                        if(downlod){
+                                            set(ref(database, 'Users/'+'Drivers/'+ user.uid),{
+                                                email: user.email,
+                                                car: userCar,
+                                                name: userName,
+                                                phone: userPhone,
+                                                profileImageUrl: downlod,
+                                                service: selectCar,
+                                                person:personn,
+                                                totalP:totalPerson
+                                            })
+                                            // console.log("This is work");
+                                            // update(ref(database, 'Users/'+'Customers/'+ user.uid+"/"),{
+                                            //     email:'email@gmail.com',
+                                            //     pagli:"pagli"
+                                            // })
+                                        }
+                                    } 
+                                    else {
+                                    }
+                                    }).catch((error) => {
+                                        console.error(error);
+                                    });
+                                    console.log(downlod);
+                }
+            })
+    }
+
+    submit.addEventListener('click',(event)=>{
+            event.preventDefault()
+            var userCar = document.getElementById('userCar').value;
+            if (userName) {
+                console.log(userName);
+            }
+            var userName = document.getElementById('userName').value;
+            if (userName) {
+                console.log(userName);
+            }
+            var userPhone = document.getElementById('userPhone').value;
+            if (userPhone) {
+                console.log(userPhone);
+            }
+            var personn = document.getElementById('person').value - 1;
+            var totalPerson = document.getElementById('totalPerson').value;
+            
+            var ele = document.getElementsByName('selectCar');
+			for(var i = 0; i < ele.length; i++) {
+				if(ele[i].checked)
+				// document.getElementById("result").innerHTML
+				// 		= "Gender: "+ele[i].value;
+                var service = ele[i].value;
+                if (service) {
+                    console.log(service);
+                }
+			}
+            
+            if (files[0]) {
+                UploadProcess(userName,userPhone,userCar,service,personn,totalPerson);
+            }
+            else{
+                NotUploadProcess(userName,userPhone,userCar,service,personn,totalPerson);
+            }
+            // console.log( "hi",userName,userPhone);
+        })
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            // location.replace("welcome.html");
+
+            // document.getElementById('setemail').innerHTML = 'Hellow, ' + user.email;
+            // set(ref(database, 'Users/'+'Drivers/'+ user.uid),{
+            //     email: user.email
+            // })
+
+            // ----------------------------------------------------------------
+                get(child(dbRef, `Users/Drivers/${user.uid}`)).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        
+                        console.log(snapshot.val());
+                        // location.replace("driverMapActivity.html");     
+                    } 
+                    else {
+                        console.log(user.uid);
+                        console.log("No data available");
+                    }
+                    }).catch((error) => {
+                    console.error(error);
+                });
+                get(child(dbRef, `Users/Drivers/${user.uid}`)).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        console.log("val  "+ snapshot.val());
+                        setUserInformain(snapshot.val().name,snapshot.val().phone,snapshot.val().profileImageUrl,snapshot.val().car,snapshot.val().service)
+                        
+                    } 
+                    else {
+                    }
+                    }).catch((error) => {
+                    console.error(error);
+                });
+                // alert('post comand')
+
+                const postListRef = ref(db, 'posts');
+                const newPostRef = push(postListRef);
+                set(newPostRef, {
+                    newPostRef: true
+                });
+
+        } else {
+            // User is signed out
+            // ...
+            location.replace("driverLongin.html");
+        }
+    });
+    function setUserInformain(name,phone,imgsrc,car,select) {
+        if (imgsrc) {
+            console.log(imgsrc);
+            userImgL.src = imgsrc;
+        }
+        else{
+            console.log("img is not set");
+        }
+        if (car) {
+            console.log(car);
+            userCar.value = car;
+        }
+        else{
+            console.log("img is not set");
+        }
+        if (name) {
+            console.log("name",name);
+            userName.value = name;
+        }
+        else{
+            console.log("Name is not avelable");
+        }        
+        if (phone) {
+            console.log("phone",phone);
+            userPhone.value = phone;
+        }
+        else{
+            console.log("Phone is not avelable");
+        }        
+        if (select) {
+            console.log("selectCar",select);
+            document.getElementById(select).checked = true;
+        }
+        else{
+            console.log("Phone is not avelable");
+        }        
+    }
+    var map = L.map('map').setView([51.505, -0.09], 13);
+   var osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    osm.addTo(map);
+            ////// if (!navigator.geolocation) {
+            ///////     console.log("your Brouser Doesn`t support geolocaion feature!");
+            /////// }else{
+            ///////     // setInterval(() => {
+            ///////         // navigator.geolocation.getCurrentPosition(getpostion);
+            // /////        navigator.geolocation.watchPosition(getpostion);
+            //////     // }, 5000);
+            ////// }
+
+    var marker;
+    var circle;
+    function getpostion(postion) {
+        // alert('get position')
+        // console.log(postion);
+        var lat = postion.coords.latitude;
+        var lng = postion.coords.longitude;
+        var accuracy = postion.coords.accuracy;
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        if (circle) {
+            map.removeLayer(circle);
+        }
+        var custom_icon;
+        custom_icon = L.icon({
+                    iconUrl: '../img/cariamge.png',
+                    iconSize: [30, 60],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [10, -30]
+                });
+        marker = L.marker([lat,lng],{icon: custom_icon}).bindPopup("<p><b>Your Locaion<b></p>");
+        
+        circle = L.circle([lat,lng],{radius: accuracy});
+        // map = L.map('map').setView([lat,lng], 15);
+        var featureGroup = L.featureGroup([marker,circle]).addTo(map);
+        map.setView([lat,lng], 15);
+        // map.setZoom([15],animate= true)
+        // map.fitBounds(featureGroup.getBounds());
+        console.log("your information is : lat="+ lat+" lng="+lng+" accuracy="+accuracy);
+        // alert('driverAW');
+
+
+        setInterval(() => {
+            // navigator.geolocation.getCurrentPosition(getpostion);
+            // alert('pickup marker')
+            // navigator.geolocation.watchPosition(getpostion);
+            driverAW(lat,lng)
+        }, 5000);
+        
+    }
+
+  //--------------------------------  getCusomerInforMation -------------------------------//
+  function driverAW(lat,lng) {
+    const userrr = auth.currentUser;
+        if (userrr !== null) {
+            const uiddd = userrr.uid;
+            // console.log(uiddd);
+            const geohash = Geohash.encode(lat, lng, 10);
+            // console.log(geohash);
+            // set(ref(database, 'DriverAvailable/'+ uiddd),{
+            // })
+            // alert(customerRideId);
+            // alert("Ride Id is"+customerRideId)
+        if (customerRideId) {
+            var ele = document.getElementsByName('selectCar');
+			for(var i = 0; i < ele.length; i++) {
+				if(ele[i].checked)
+                var service = ele[i].value;
+                // if (service) {
+                //     alert(service)
+                // }
+			}
+            if (service == 'UberX') {
+            //    alert('this is work');
+                remove(ref(database, 'DriverAvailable/'+ uiddd+'/'))
+                .then(()=>{
+                })
+                .catch((error)=>{
+                    console.log(error);
+                    alert(error);
+                })
+                update(ref(database, 'DriverWorking/'+ uiddd+'/'),{
+                    g:geohash,
+                    l:[lat,lng]
+                });   
+            
+           
+            }
+            else{
+                if (driverAvAo == 'full') {
+                    remove(ref(database, 'DriverAvailable/'+ uiddd+'/'))
+                    .then(()=>{
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                        alert(error);
+                    })
+                    update(ref(database, 'DriverWorking/'+ uiddd+'/'),{
+                        g:geohash,
+                        l:[lat,lng]
+                    });  
+                }
+                else{
+                    remove(ref(database, 'DriverWorking/'+ uiddd+'/'))
+                    .then(()=>{
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                        alert(error);
+                    })
+                    update(ref(database, 'DriverAvailable/'+ uiddd+'/'),{
+                        g:geohash,
+                        l:[lat,lng]
+                    }); 
+                }
+            }
+            
+        }
+        else{
+                remove(ref(database, 'DriverWorking/'+ uiddd+'/'))
+                .then(()=>{
+                })
+                .catch((error)=>{
+                    console.log(error);
+                    alert(error);
+                })
+                update(ref(database, 'DriverAvailable/'+ uiddd+'/'),{
+                    g:geohash,
+                    l:[lat,lng]
+                }); 
+            }    
+    }
+  }
+        function whatchpositiondriver() {
+            if (!navigator.geolocation) {
+                console.log("your Brouser Doesn`t support geolocaion feature!");
+            }else{
+                // setInterval(() => {
+                    // navigator.geolocation.getCurrentPosition(getpostion);
+                    // alert('pickup marker')
+                    navigator.geolocation.watchPosition(getpostion);
+                // }, 5000);
+            }
+  }
+  whatchpositiondriver();
+  onAuthStateChanged(auth, (user) => {
+        if (user) {
+
+            const starCountRef = ref(db,`Users/Drivers/${user.uid}/customerRequest`);
+            onValue(starCountRef, (snapshot) => {
+                // const data = snapshot.val();
+                if (snapshot.exists()) {
+                    whatchpositiondriver();
+                    document.getElementById('userInfoBtn').style.display="inline";
+                    document.getElementById('pickupC').style.display="inline";
+                    console.log(snapshot.val());
+                    customerRideId = snapshot.val().customerRideId;
+                    destination = snapshot.val().destination;
+                    destinationLat = snapshot.val().destinationLat;
+                    destinaionLng = snapshot.val().destinaionLng;
+
+                    console.log(customerRideId);   
+                    customerId(customerRideId)
+                    dropupLocation(destinationLat,destinaionLng);
+
+                    let  latdata;
+                    const db = getDatabase();
+                    // const Drif = ref(db, `CustomerRequest/${customerRideId}/l/`);
+                    // onValue(Drif, (snapshot) => {
+                    //     const nn = snapshot.val();
+                    //     pickloction = snapshot.val();
+                    //     console.log("lat,lng is",nn[0]);
+                    //     // alert(" ");
+                    //     console.log(nn);
+                    //     MarktoPickupLocation(nn[0],nn[1]);
+                        
+
+                    //     RoutingLayer(nn,destinationLat,destinaionLng);
+                    // });
+                    
+                    get(child(dbRef, `CustomerRequest/${customerRideId}/l/`)).then((snapshot) => {
+                        if (snapshot.exists()) {
+                            const nn = snapshot.val();
+                        pickloction = snapshot.val();
+
+                        console.log("lat,lng is",nn[0]);
+                        // alert(" ");
+                        console.log(nn);
+                        MarktoPickupLocation(nn[0],nn[1]);
+    
+                        RoutingLayer(nn,destinationLat,destinaionLng);
+                        }
+                    })
+
+                }
+                else{
+                    document.getElementById('userInfoBtn').style.display="none";
+                    document.getElementById('pickupC').style.display="none";
+                    whatchpositiondriver();
+                    customerRideId = "";
+                }
+            });
+            whatchpositiondriver();
+
+            
+            // get(child(dbRef, `Users/Drivers/${user.uid}/customerRequest`)).then((snapshot) => {
+            //     if (snapshot.exists()) {
+            //         console.log(snapshot.val());
+            //         customerRideId = snapshot.val().customerRideId;
+            //         destination = snapshot.val().destination;
+            //         destinationLat = snapshot.val().destinationLat;
+            //         destinaionLng = snapshot.val().destinaionLng;
+            //         console.log(customerRideId);
+            //     }
+            // })
+        }
+    })
+
+
+    function RoutingLayer(customerlatlng,dropuplat,drouplng) {
+        // L.Routing.control({
+        //     waypoints: [
+        //         L.latLng(57.74, 11.94),
+        //         L.latLng(57.6792, 11.949)
+        //     ]
+        // }).addTo(map);
+
+    }
+    function dropupLocation(Lat,Lng) {
+        console.log(Lat,Lng);
+        var DropupMarker;
+        // if (PickupMarker) {
+        //     map.removeLayer(PickupMarker);
+        // }
+        alert("Pick up marker")
+        var Dropupcustom_icon;
+        console.log(Lat,Lng);
+        Dropupcustom_icon = L.icon({
+                    iconUrl: '../img/pickupmark.png',
+                    iconSize: [20, 29],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [0, -29]
+                });
+            DropupMarker = L.marker([Lat,Lng],{icon: Dropupcustom_icon}).bindPopup("<p><b>DropupCustomerLocaiton<b></p>");
+                var setdes = localStorage.getItem('destinaionlat');
+                if (!setdes) {
+                    prompt('this is propt')
+                    localStorage.setItem('destinaionlat',Lat);
+                    localStorage.setItem('destinaionlng',Lng);
+
+                    onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                            update(ref(database, `Users/Drivers/${user.uid}/customerRequest/locations/`),{
+                                destinaionlat:Lat,
+                                destinaionlng:Lng
+                            });  
+                        }
+                    });
+                }
+               
+        // map = L.map('map').setView([lat,lng], 15);
+        var featureGroup = L.featureGroup([DropupMarker]).addTo(map);
+        map.setView([Lat,Lng], 15);
+    }
+    function MarktoPickupLocation(Lat,Lng) {
+
+        var lann = localStorage.getItem('customeradd');
+        if (!lann) {
+            getcustomraddinfo(Lat,Lng);
+
+        onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        update(ref(database, `Users/Drivers/${user.uid}/customerRequest/locations/`),{
+                            pickuplat:Lat,
+                            pickuplng:Lng
+                        });  
+                    }
+                });
+        }
+        console.log(Lat,Lng);
+        var PickupMarker;
+        // if (PickupMarker) {
+        //     map.removeLayer(PickupMarker);
+        // }
+        alert("Pick up marker")
+        var Pickupcustom_icon;
+        console.log(Lat,Lng);
+        Pickupcustom_icon = L.icon({
+                    iconUrl: '../img/drop up.png',
+                    iconSize: [40, 40],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [8, -29]
+                });
+            PickupMarker = L.marker([Lat,Lng],{icon: Pickupcustom_icon}).bindPopup("<p><b>PickupCustomerLocaiton<b></p>");
+        // map = L.map('map').setView([lat,lng], 15);
+        var featureGroup = L.featureGroup([PickupMarker]).addTo(map);
+        map.setView([Lat,Lng], 15);
+    }
+    function customerId(customerRideId) {
+        if (customerRideId) {
+            get(child(dbRef, `Users/Customers/${customerRideId}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    var personint = parseInt(snapshot.val().person);
+                    // localStorage.setItem('hihihihihihihihih',snapshot.val().phone);
+                    setCustomerInfo(snapshot.val().profileImageUrl,snapshot.val().name,snapshot.val().phone,personint);
+                    var setlocalstorag2 = localStorage.getItem('customername');
+                    if (!setlocalstorag2) {
+                        setlocalstorag(snapshot.val().name,snapshot.val().phone,snapshot.val().profileImageUrl);
+                    }
+                    
+                    if (snapshot.val().person == null) {
+                        driverAvAo = 'full';
+                    }
+                    else{
+                        // alert('00000000000000000000000000000000');
+                        totalPerson.style.display="inline";
+                    }
+                    alert('person is' +snapshot.val().person);
+                }
+            })  
+        }                    
+    }
+    function setCustomerInfo(ImgUrl,Name,Phone,person){
+        console.log("img url is",ImgUrl);
+        if (ImgUrl) {
+            document.getElementById('CustomerImg').src = ImgUrl;
+        }else{
+            console.log("Img is not set");
+        }
+        if (Name) {
+            document.getElementById('CustomerName').innerHTML = Name;
+        }
+        else{
+            console.log("Name is not define");
+        }
+        if(Phone){  
+            document.getElementById('CustomerPhone').innerHTML = Phone;
+        }
+        else{
+            console.log("Phone is not define");
+        }
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                var fperson;
+                get(child(dbRef, 'Users/'+'Drivers/'+ user.uid)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    if (snapshot.val().totalP) {
+                        fperson = parseInt(snapshot.val().totalP);
+                        var pperson = person+fperson;
+                        setperson(pperson);
+                    }
+                    else{
+                        setperson(person);
+                    }
+                }
+            })  
+
+            }
+        })
+        
+    }
+    function setperson(person) {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // alert(person);
+                if (person) {
+                get(child(dbRef, `Users/Customers/${customerRideId}`)).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        if(snapshot.val().personval=='true'){
+                            alert("ooooooooooooooooo My GOde");
+                            update(ref(database, 'Users/'+'Drivers/'+ user.uid),{
+                            totalP:person
+                            })   
+                            update(ref(database, 'Users/'+'Customers/'+ customerRideId),{
+                                personval:'false'
+                            })
+                }
+            }
+        })
+                        // }
+                    // }
+                // })
+                }
+                driverAvAofunc(person);
+        }
+    })  
+    }
+    onAuthStateChanged(auth, (user) => {
+            if (user) {
+    const Drif = ref(db, `Users/Drivers/${user.uid}/customerRequest`);
+            onValue(Drif, (snapshot) => {
+
+                get(child(dbRef, `Users/Customers/${customerRideId}/person`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    driverAvAofunc(snapshot.val());
+                }
+            }) 
+                // alert('person person pserson pserson pserson')   
+        });
+    }
+});
+    function driverAvAofunc(person) {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                get(child(dbRef, 'Users/'+'Drivers/'+ user.uid)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    let secondperson = parseInt(snapshot.val().person);
+                    // alert('fullllllllllllllllllllllllllllll');
+                    if( secondperson == person){
+                        driverAvAo = 'full';
+                    }
+
+                }
+            })
+            }
+        })
+    }
+  //--------------------------------  EndgetCusomerInforMation -------------------------------//
+    
+//   ---------------------------------routing fucntion in map-------------------------'//
+
+
+//   ---------------------------------End routing fucntion in map-------------------------'//
+
+    pickupC.addEventListener('click',()=>{
+        alert('conform pick up customer')  
+        document.getElementById('pickupC').style.display='none';
+        document.getElementById('dropupC').style.display='inline';
+    })
+    function create_UUID(){
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+        return uuid;
+    }
+    dropupC.addEventListener('click',()=>{
+        alert('dropup customer');
+        document.getElementById('dropupC').style.display='none';
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                writeNewPost(user.uid);
+            // const postListRef = ref(db, 'Users/'+'Drivers/'+ user.uid + "/"+"history/");
+            //     const newPostRef = push(postListRef);
+            //     set(newPostRef, {
+            //         newPostRef: true
+            //     });    
+            // const postListRef2 = ref(db, 'Users/'+'Customers/'+ customerRideId + "/"+"history/");
+            //     const newPostRef2 = push(postListRef2);
+            //     set(newPostRef2, {
+            //         newPostRef: true
+            //     });  
+
+            // const postListRef1 = ref(db, 'history');
+            //     const newPostRef1 = push(postListRef1);
+            //     set(newPostRef1, {
+            //         customer:customerRideId,
+            //         driver:user.uid,
+            //         destination:destination,
+            //         // location:[form],
+            //         ratingpath:0,
+            //         timeStamp:Math.round(Date.now()/100)
+            //     }); 
+                // console.log(newPostRef1._path.pieces_[1]);
+                // addStarrr(user.uid,newPostRef1._path.pieces_[1])
+                // console.log(postListRef1);
+                // update(ref(db, 'history'+newPostRef1+'/'+'location/'),{
+                //         form:[{lat:pickloction[0]},
+                //               {lng:pickloction[1]}
+                //         ],
+                //         to:[{lat:destinationLat},
+                //               {lng:destinaionLng}]
+                //     })    
+                
+
+                // update(ref(db, 'history/'+newPostRef1._path.pieces_[1] +'/'+'location/'+'form'),{
+                //     lat:pickloction[0],
+                //     lng:pickloction[1]
+                // })
+                // update(ref(db, 'history/'+newPostRef1._path.pieces_[1] +'/'+'location/'+'to'),{
+                //     lat:destinationLat,
+                //     lng:destinaionLng
+                // })
+
+                remove(ref(database, 'Users/'+'Customers/'+ customerRideId + "/"+"person"))
+                .then(()=>{
+                    alert('personremove');
+                    // customerRideId = "";
+                })
+                .catch((error)=>{
+                    console.log(error);
+                })
+                remove(ref(database, 'Users/'+'Drivers/'+ user.uid + "/"+"customerRequest/"))
+                .then(()=>{
+                    alert('Drive Complite');
+                    customerRideId = "";
+                })
+                .catch((error)=>{
+                    console.log(error);
+                })
+                remove(ref(database, 'Users/'+'Drivers/'+ user.uid + "/" + "totalP"))
+                .then(()=>{
+                    alert('Drive Complite');
+                    customerRideId = "";
+                    totalPerson.style.display="none";
+                })
+                .catch((error)=>{
+                    console.log(error);
+                })
+                localStorage.removeItem('customeradd');
+                localStorage.removeItem('customerdestimg');
+                localStorage.removeItem('customerphone');
+                localStorage.removeItem('customername');
+                localStorage.removeItem('destinaionlat');
+                localStorage.removeItem('destinaionlng');
+
+                driverAvAo = "";
+            }
+        });
+    })
+    // function addStarrr(uid, key) {
+    //         const updates = {};
+    //         updates[`posts/${key}/stars/${uid}`] = true;
+    //         // updates[`posts/${key}/starCount`] = db.ServerValue.increment(1);
+    //         updates[`user-posts/${key}/stars/${uid}`] = true;
+    //         // updates[`user-posts/${key}/starCount`] = db.ServerValue.increment(1);
+    //         getDatabase().ref().update(updates);
+    //         update(ref(db))
+    // }
+
+
+
+
+    function writeNewPost(uid) {
+
+        // A post entry.
+        const postData = {
+            customer:customerRideId,
+            driver:uid,
+            destination:destination,
+            ratingpath:0,
+            timeStamp:Math.round(Date.now()/1000)
+        };
+
+        // Get a key for a new Post.
+        const newPostKey = push(child(ref(db), 'history')).key;
+
+        // Write the new post's data simultaneously in the posts list and the user's post list.
+        const updates = {};
+        updates[db, 'Users/'+'Customers/'+ customerRideId + "/"+"history/"+newPostKey] = true;
+        updates[ 'Users/'+'Drivers/'+ uid + "/"+"history/"+newPostKey] = true;
+        // updates['history/'+newPostKey] = postData;
+        updates['history/'+newPostKey+'/'+'customer'] =customerRideId;
+        updates['history/'+newPostKey+'/'+'driver'] =uid;
+        updates['history/'+newPostKey+'/'+'destination'] =destination;
+        updates['history/'+newPostKey+'/'+'rating'] =0;
+        updates['history/'+newPostKey+'/'+'timeStamp'] =Math.round(Date.now()/1000);
+
+        addloctioninhistory(newPostKey);
+        return update(ref(db), updates);
+            
+    }
+    function addloctioninhistory(key){
+        alert(key);
+        update(ref(db, 'history/'+key +'/'+'location/'+'form'),{
+                lat:pickloction[0],
+                lng:pickloction[1]
+            })
+            update(ref(db, 'history/'+key+'/'+'location/'+'to'),{
+                lat:destinationLat,
+                lng:destinaionLng
+            })
+    }
+    submitGoTo.addEventListener('click',(e)=>{
+        var start = document.getElementById('start').value;
+        var stop = document.getElementById('destination').value;
+        Goto(start,stop);
+    })
+    function Goto(start,stop) {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const updatess = {};
+                updatess['Users/'+'Drivers/'+ user.uid + '/Goto/'+'Start'] =start;
+                updatess['Users/'+'Drivers/'+ user.uid + '/Goto/'+'Stop'] =stop;
+                update(ref(db), updatess);
+        }
+    })
+    }
+    onAuthStateChanged(auth, (user) => {
+            if (user) {
+            const starCountRef = ref(db,`Users/Drivers/${user.uid}/customerRequest/sharCustomer/`);
+            onValue(starCountRef, (snapshot) => {
+            // const data = snapshot.val();
+                if (snapshot.exists()) {
+                    document.getElementById('demoInfo').style.display = 'none';
+                    document.getElementById('userInfoBtn').innerHTML = '<a href="userinfo.html">UserInfo</a>';
+                }
+            })
+            }
+        })
+
+  </script>
+      <!-- <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+      <script src="../Routing/leaflet-routing-machine.js"></script>
+  <script>
+            //   var mapp = L.map('map');
+              L.Routing.control({
+            waypoints: [
+                L.latLng(57.74, 11.94),
+                L.latLng(57.6792, 11.949)
+            ]
+        }).addTo(map);
+  </script> -->
+  <script src="/js/drivermap.js"></script>
+</html>
+
+<script>
+ function getcustomraddinfo(lat,lng) {  
+    var platform = new H.service.Platform({
+        'apikey': 'y_ZOv5v2wT9JxHHVNUB9u1vWxqs_GTTrihu5QpiYFUI'
+        });
+
+        // Get an instance of the search service:
+        var service = platform.getSearchService();
+
+        service.reverseGeocode({
+        // at: '23.081547,72.572243,100'
+        at: `${lat},${lng},100`
+        }, (result) => {
+        result.items.forEach((item) => {
+            // alert(item.address.label)
+            var persoon = {"let": lat ,"lng": lng}
+            var pickupadd = item.address.label;
+            localStorage.setItem('person',person);
+            localStorage.setItem('customeradd',item.address.label);
+            localStorage.setItem('pickuplat',JSON.stringify(Lat));
+            localStorage.setItem('pickuplng',Lng);
+        });
+        }, alert);
+ }
+ function setlocalstorag(name,phone,img){
+     alert("select");
+    localStorage.setItem('customername',name);
+    localStorage.setItem('customerphone',phone);
+    localStorage.setItem('customerdestimg',img);
+ }
+ 
+</script>
+<script src="../js/goto.js"></script>

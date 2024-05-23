@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+button{
+    border: none;
+    background-color: transparent;
+}
+.driverinff{
+    position: absolute;
+    z-index: 999;
+    bottom: 20px;
+    left: 20px;
+    background-color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    display: none;
+    /* background-color: black; */
+    box-shadow: 0 1px 5px rgb(54 54 54 / 30%);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+#driverInfoo{
+    display: none;
+    width: 100px;
+    background-color: black;
+    box-shadow: 0 1px 5px rgb(54 54 54 / 30%);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+#map{
+    height: 100vh;
+}
+.customerPd{
+    position: absolute;
+    z-index: 999;
+    bottom: 20px;
+    right: 10px;
+}
+.pikdro img {
+    width: 150px;
+}

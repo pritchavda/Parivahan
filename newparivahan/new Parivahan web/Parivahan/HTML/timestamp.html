@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Time Stamp</h3>
+</body>
+<script>
+//     var unixTimestamp = 1649725786
+// var date = new Date(unixTimestamp*1000);
+// console.log("Unix Timestamp:",unixTimestamp)
+// console.log("Date Timestamp:",date.getTime())
+// console.log(date)
+// console.log("Date: "+date.getDate()+
+//           "/"+(date.getMonth()+1)+
+//           "/"+date.getFullYear()+
+//           " "+date.getHours()+
+//           ":"+date.getMinutes()+
+//           ":"+date.getSeconds());
+
+const date = new Date();
+const timestamp = date.getTime();
+
+const seconds = Math.floor(timestamp / 1000);
+const oldTimestamp = 1649784149;
+
+const difference = seconds - oldTimestamp;
+let output = ``;
+if (difference < 60) {
+    // Less than a minute has passed:
+    output = `${difference} seconds ago`;
+} else if (difference < 3600) {
+    // Less than an hour has passed:
+    output = `${Math.floor(difference / 60)} minutes ago`;
+} else if (difference < 86400) {
+    // Less than a day has passed:
+    output = `${Math.floor(difference / 3600)} hours ago`;
+} else if (difference < 2620800) {
+    // Less than a month has passed:
+    output = `${Math.floor(difference / 86400)} days ago`;
+} else if (difference < 31449600) {
+    // Less than a year has passed:
+    output = `${Math.floor(difference / 2620800)} months ago`;
+} else {
+    // More than a year has passed:
+    output = `${Math.floor(difference / 31449600)} years ago`;
+}
+console.log(output);
+</script>
+</html>

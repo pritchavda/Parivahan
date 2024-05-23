@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DriverLoginActivity"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        app:srcCompat="@drawable/applogo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Log in to access"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Your  "
+                    android:textColor="@color/black"
+                    android:textSize="30dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="ACCOUNT"
+                    android:textColor="@color/maincolor"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your EmailID"
+        android:id="@+id/memil"
+        android:padding="15dp"
+        android:background="@drawable/loginshap"
+        android:textColor="#000"
+        android:textSize="20dp"/>
+    <EditText
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:id="@+id/mpassword"
+        android:padding="15dp"
+        android:background="@drawable/loginshap"
+        android:layout_marginTop="20dp"
+        android:textColor="#000"
+        android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mlogin"
+        android:background="@drawable/loginshap"
+        android:backgroundTint="@color/maincolor"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:text="Singn In"
+        android:textAllCaps="false"
+        android:textColor="#000"
+        android:textSize="20dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mregistration"
+        android:layout_marginLeft="20dp"
+        android:text="Sign Up"
+        android:backgroundTint="@color/black"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:textSize="20dp"
+        android:background="@drawable/loginshap"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            app:srcCompat="@drawable/apploginimg"/>
+
+    </LinearLayout>
+</LinearLayout>

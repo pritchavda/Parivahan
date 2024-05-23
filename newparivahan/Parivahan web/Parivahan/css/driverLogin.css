@@ -1,0 +1,90 @@
+.content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+}
+.contright{
+    margin: auto;
+}
+.navvlog{
+    margin: 20px 0px 0px 20px;
+}
+.logintitle h2{
+    color: #000;
+    font-weight: bold;
+    font-size: 55px;
+}
+.account{
+    color: #fec842;
+    font-weight: 800;
+}
+.loginimg{
+    margin-right: 30px;
+}
+.loginimg img{
+    width: 500px;
+}
+.loginInfo{
+    margin-top: 30px;
+}
+.loginform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contleft{
+    margin: auto;
+}
+.formemail{
+}
+.formm{
+    width: 370px;
+    padding: 7px;
+    border: 1.5px solid black;
+    outline: none;
+    border-radius: 30px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+.fomrpassword{
+    margin-top: 10px;
+}
+.loginButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.loginButton{
+    margin-top: 30px;
+}
+.btnbtn{
+    padding: 5px 20px 5px 20px;
+    border-radius: 25px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.singbtn{
+}
+.SignInBtn{
+    background-color: #fec842;
+    /* padding: 7px; */
+    /* font-size: 17px; */
+    /* border-radius: 20px; */
+
+}
+.SignUpBtn{
+    /* padding: 7px; */
+    /* font-size: 17px; */
+    /* border-radius: 20px; */
+    background-color: #000;
+    color: #fff;
+}
+.SignUpBtn{
+    margin-left: 10px;
+}
+.paddinginp{
+
+}

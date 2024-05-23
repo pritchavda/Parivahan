@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "firebase": "^9.6.5",
+    "geofire-common": "^5.2.0",
+    "leaflet-routing-machine": "^3.2.12"
+  },
+  "name": "y",
+  "version": "1.0.0",
+  "description": "This is a app for vary use full",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "PritChavda",
+  "license": "ISC"
+}

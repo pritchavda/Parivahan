@@ -1,0 +1,35 @@
+.Content{
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.userimg img{
+    width: 300px;
+}
+.mainbtn{
+    color: black;
+    font-size: 25px;
+    border: 1.7px solid black;
+    border-radius: 40px;
+    padding: 10px;
+}
+.acolor{
+    color: #000;
+}
+.spanclass{
+    margin-left: 20px;
+    font-weight: bold;
+}
+.cbtn{
+    margin-top: 25px;
+}
+.text{
+    font-size: 30px;
+}
+.POSITION{
+    color: #fec842;
+    font-weight: 800;
+}

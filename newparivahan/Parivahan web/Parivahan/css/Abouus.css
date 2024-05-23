@@ -1,0 +1,16 @@
+.l-hadding h2{
+    font-size: 40px;
+}
+.l-hadding h2 span{
+    color: #ffba41;
+}
+.l-hadding-margin {
+    margin-top: 20px;
+}
+.l-img{
+    margin-top: 30px;
+}
+.content-p {
+    font-weight: 500;
+    font-size: 20px;
+}

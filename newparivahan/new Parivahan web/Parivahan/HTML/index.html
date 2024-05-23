@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
+    <title>Gogo Taxi</title>
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/indexx.css">
+    <link rel="stylesheet" href="../css/style2.css">
+</head>
+<body style="overflow: hidden;">
+    <div class="newcontainer">
+        <div class="navlogo" style="display: inline;">
+            <img src="../img/parivahan logo1.png" alt="">
+        </div>
+        <div class="Content">
+            <div class="text">
+                <h2>Select Your</h2>
+                <h2><span class="POSITION">POSITION</span> Here.</h2>
+            </div>
+            <div class="Button">
+                <div class="Driverbtn">
+                    <Button class="mainbtn"><a href="driverLongin.html" class="acolor"> <span class="spanclass" >Driver</span><span style="margin-left: 250px;" id="right-arrow" class="arrow right fa fa-chevron-right"></span></a></Button>
+                </div>
+                <div class="Driverbtn">
+                    <Button class="mainbtn cbtn"><a href="customerLongin.html" class="acolor"> <span class="spanclass">Customer</span><span style= "margin-left: 210px;" id="right-arrow" class="arrow right fa fa-chevron-right"></span></a></Button>
+                </div>
+            </div>
+            <div class="userimg">
+                <img src="../img/drivercustomer.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- <div class="indexbtnContainer">
+        <center><button class="indexbtn driverbtn" id="driver">I`Am Driver</button></center>
+        <center><button class="indexbtn customerbtn" id="customer">I`Am Customer</button></center>
+</div> -->
+
+
+
+</body>
+<script>
+    driver.addEventListener('click',(e)=>{
+       location.replace('driverLongin.html')
+    })
+    customer.addEventListener('click',(e)=>{
+        location.replace('customerLongin.html')  
+    })
+</script>
+<script>
+    const btn = document.querySelector(".driverbtn");
+  
+    // Listen for click event
+    btn.onclick = function (e) {
+  
+        // Create span element
+        let ripple1 = document.createElement("span");
+  
+        // Add ripple class to span
+        ripple1.classList.add("ripple1");
+  
+        // Add span to the button 
+        this.appendChild(ripple1);
+  
+        // Get position of X
+        let x = e.clientX - e.target.offsetLeft;
+  
+        // Get position of Y 
+        let y = e.clientY - e.target.offsetTop;
+  
+        // Position the span element
+        ripple1.style.left = `${x}px`;
+        ripple1.style.top = `${y}px`;
+  
+        // Remove span after 0.3s
+        setTimeout(() => {
+            ripple1.remove();
+        }, 300);
+  
+    };
+</script>
+<script>
+    const btn2 = document.querySelector(".customerbtn");
+  
+    // Listen for click event
+    btn2.onclick = function (e) {
+  
+        // Create span element
+        let ripple2 = document.createElement("span");
+  
+        // Add ripple class to span
+        ripple2.classList.add("ripple2");
+  
+        // Add span to the button 
+        this.appendChild(ripple2);
+  
+        // Get position of X
+        let x = e.clientX - e.target.offsetLeft;
+  
+        // Get position of Y 
+        let y = e.clientY - e.target.offsetTop;
+  
+        // Position the span element
+        ripple2.style.left = `${x}px`;
+        ripple2.style.top = `${y}px`;
+  
+        // Remove span after 0.3s
+        setTimeout(() => {
+            ripple2.remove();
+        }, 300);
+  
+    };
+</script>
+</html>

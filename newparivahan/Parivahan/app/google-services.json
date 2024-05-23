@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "127872997898",
+    "project_id": "parivahan-f7413",
+    "storage_bucket": "parivahan-f7413.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127872997898:android:f4479b0ac4c329a1fb9df3",
+        "android_client_info": {
+          "package_name": "com.example.parivahan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127872997898-bbh39efju756n78j4q95knchdq9kfucd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parivahan",
+            "certificate_hash": "0e8e3929f6bf715157104d88b44352ee3314c69b"
+          }
+        },
+        {
+          "client_id": "127872997898-3afv1ebp0gq6spuqaa0dtee4hcjtrtot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfNcngRp3sWpB-1qzgmUabdKK5OnXNmkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127872997898-3afv1ebp0gq6spuqaa0dtee4hcjtrtot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,150 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.navv{
+    position: relative;
+}
+.footerr{
+    position: relative;
+ 
+    bottom: 0;
+    /* z-index: -1; */
+}
+
+
+.o-texts{
+    float: right;
+    display: inline;
+    margin: 20px 30px 0px 0px;  
+    text-align: right;
+}
+
+.app-texts{
+    text-align: right;
+    display: inline;
+
+}
+.app-texts{
+    font-size: 26px;
+}
+.app-i{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    display: block;
+    /* position: absolute; */
+
+}
+.app-i1{
+
+}
+.app-i1 img {
+    width: 480px;
+    transform: rotate(45deg);
+    margin-left: -97px;
+    margin-top: -40px;
+}
+.app-i2 img {
+    width: 500px;
+    transform: rotate(
+45deg);
+    margin-left: -74px;
+    margin-top: -325px;
+}
+
+.app-logo{
+    float: right;
+    display: flex;
+    margin-top: 100px;
+    /* justify-content: right;
+    align-items: center;  */
+    top: 0;
+}
+.app-logo img{
+    width: 223px;
+}
+
+
+.alll{
+    display: flex;
+}
+
+
+
+
+.direction{
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    align-items: center;
+}
+
+
+.all-section{
+    width: 100%;
+    height: 150vh;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+
+
+.setion{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+
+.DemoWebsite{
+    margin-top: 50px;
+}
+
+.DemoWebsite h2{
+    font-size: 30px;
+}
+.DemoWebsite p {
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 39px;
+}
+.DemoWebsite button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 279px;
+    margin-top: 20px;
+    background: linear-gradient(to bottom right,#4effff,#998fff);
+    color: white;
+    border-radius: 20px;
+}
+.DemoWebsite button a{
+     color: #fff;
+     font-size: 16px;
+}
+
+.f-cont {
+    /* position: absolute; */
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+    margin-top: 130px;
+}
+
+/* .setion-1{
+    margin-top: 50px;
+    display: flex;
+}
+.setion-2{
+    margin-top: 50px;
+    display: flex;
+}
+.setion-3{
+    margin-top: 50px;
+    display: flex;
+} */

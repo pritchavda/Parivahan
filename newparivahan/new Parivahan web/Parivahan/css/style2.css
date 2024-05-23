@@ -1,0 +1,435 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+button{
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.navcont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 10px 0px 20px;
+}
+.navlogo img{
+    width: 270px;
+}
+
+.navul{
+    display: flex;
+}
+.navul li{
+    margin: 5px;
+}
+.navul li a{
+        color: #000;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px 30px 10px 30px;
+}
+.activee{
+    background-color: #fec842;
+    color: #fff !important;
+    border-radius: 30px;
+}
+.gotoconsole{
+    font-weight: 900 !important;
+    color: #fec842 !important;
+}
+
+/* ************************************ Ladingpage  ****************************************** */
+.landingpag{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 29px 10px 50px 50px;
+}
+
+.l-img img{
+    width: 660px;
+}
+
+.l-content{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+}
+.bbthover{
+    transition-duration: 0.6s;
+}
+.bbthover:hover{
+    box-shadow: 5px 10px 30px rgb(0 0 0 / 20%);
+}
+
+.l-hadding{
+    display: flex;
+    flex-direction: column;
+}
+.l-hadding h1{
+    font-size: 43px;
+    color: #ffba41;
+}
+.l-hadding h2{
+    font-size: 55px;
+    color: #000;
+}
+.content-p{
+    font-weight: bold;
+    font-size: 27px;
+    line-height: 40px;
+    letter-spacing: 1px;
+}
+.content-btn button{
+    /* font-family: cursive; */
+    font-size: 20px;
+    background-color: #ffba41;
+    border-radius: 30px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 30px 10px 30px;
+}
+
+.l-hadding-margin{
+    margin-top: 50px;
+}
+
+
+/*********************************** Process ***************************************************/
+.process{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.p-name h2{
+    font-size: 50px;
+}
+.p-cont1{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;    
+    width: 100vw;
+}
+.p-cont2{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;    
+}
+/* .p-Book{
+    border: 2px solid black;
+}
+.p-Pickup{
+    border: 2px solid black;
+}
+.p-Drop{
+    border: 2px solid black;
+}
+.p-Pay{
+    border: 2px solid black;
+} */
+.p-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.p-img img{
+    width: 160px;
+}
+.p-title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.p-pera{
+    color: gray;
+    font-weight: 400;
+    margin-top: 10px;
+    width: 242px;
+    text-align: center;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+
+/* --------------------------------------- Type of Vehchal ----------------------------------- */
+.tvcont{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    background-color: #dcdcdc;
+}
+.tvconent{
+    width: 100vw;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.mySlides{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tvtitle h2{
+    margin-top: 25px;
+    font-size: 40px;
+    font-weight: bold;
+}
+.tvimg{
+    /* margin-right: 50px; */
+    margin-left: -35px;
+}
+.tvimg img{
+    width: 475px;
+}
+
+.tvnextimg img{
+    width: 60px;
+    cursor: pointer;
+}
+.tvpera{
+    margin-top: 10px;
+    width: 300px;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+.tvtext{
+    margin-left: 75px;
+}
+.tvtexttitle{
+    font-size: 20px;
+}
+
+/* *************************** why ride with parivahan**************************************** */
+.whyride{
+    margin-top: 50px;
+}
+.why-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.why-main-title span{
+    color: #ffba41;
+}
+.why-main-title h2{
+    font-size: 35px;
+}
+.why-row-content{
+    margin-left: 20px;
+}
+.why-row1{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.why-row-box1{
+    /* display: flex; */
+
+}
+.why-row-img1 img{
+    width: 100px;
+}
+.why-row-pera{
+    width: 300px;
+}
+.why-rowcont{
+    display:flex;
+    justify-content: center;
+    align-items: end;
+}
+.why-row-pera{
+    margin-top: 10px;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+.why-rowcont{
+    margin-top: 50px;
+    
+}
+
+/* **********************app content *********************************************/
+
+.bookappcont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.appcontent{
+    margin-left: 100px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.appconttitle{
+    font-size: 20px;
+}
+.apppera{
+    color: gray;
+    margin-top: 50px;
+    width: 600px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    font-weight:500;
+}
+.applicationlogo{
+    margin-top: 30px;
+    
+}
+.applicationlogo img{
+    width: 70px;
+}
+.appimg{
+    margin-top: 30px;
+    margin-right: -220px;
+}
+.appimg img{
+    width: 850px;
+}
+
+/* **********************service cont**************************** */
+.servicescont{
+    background-color: #323231;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.service1{
+    margin: 30px 10px 30px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.servicecontent{
+    margin-left: 20px;
+}
+.sercicename{
+    color: white;
+    font-size: 16px;
+}
+.servicepera{
+    color: white;
+    font-size: 13px;
+    font-weight:600;
+    margin-top: 10px;
+    width: 250px;
+    line-height: 18px;
+    letter-spacing: 1px;
+}
+.serviceimg img{
+    width: 100px;
+}
+
+/* **************Footer********************** */
+.footer{
+    /* height: 50vh; */
+    background-color: #ffba41;
+}
+.footercont{
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-left: 20px;
+    margin-right: 20px; */
+}
+.footertext{
+    /* margin-top: 20px; */
+
+}
+.footerlogo{
+
+}
+.footerlogo img{
+    width: 300px;
+}
+.footerpera{
+    color: #323231;
+    margin-left: 85px;
+    width: 400px;
+    line-height: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+.footertext2{
+    color: #323231;
+    margin-top: 70px;
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+.footerpera2{
+    color: #323231;
+    text-align: right;
+    width: 500px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.footermedia img{
+    width: 50px;
+    margin-left: 20px;
+}
+.footermedia{
+    margin-top: 30px;
+}
+.facebook1{
+    width: 30px !important;
+}
+.face{
+    width: 10px;
+}
+.footerul{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    /* margin-right: 10px; */
+}
+.footerul li{
+    margin-left: 30px;
+}
+.footerul a{
+    font-size: 20px;
+    font-weight: bold;
+    color: #323231;
+
+}

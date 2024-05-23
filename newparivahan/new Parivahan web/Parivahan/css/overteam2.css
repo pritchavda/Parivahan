@@ -1,0 +1,111 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.navv{
+    position: relative;
+}
+.footerr{
+    position: relative;
+ 
+    bottom: 0;
+    /* z-index: -1; */
+}
+.team-text{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.team-text h2{
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.team-text p{
+    margin-top: 25px;
+    font-weight: bold;
+}
+.linee{
+    border-radius: 6px;
+    height: 5px;
+    width: 70px;
+    background: linear-gradient(to bottom right,#4effff,#998fff);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.Ourt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid rebeccapurple; */
+    height:500px;
+    width: 100%;
+}
+
+.O-box-1{
+    height: 387px;
+    width: 391px;
+    display: flex;  
+    border-radius: 25px;
+    box-shadow: 0 2px 4px 0 rgb(0, 0, 0 ,0.2),0 4px 16px 0 rgb(0, 0, 0,.2);
+    margin: 101px 20px 127px 20px;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.image11{
+    margin-right: 50px;
+    /* border: 2px solid red; */
+}
+.image12{
+    margin-left: 50px;
+    /* border: 2px solid red; */
+    
+}
+
+.O-box-i{
+
+    padding: 0px;
+    margin-top: 50px;
+    border-radius: 50%;
+    /* margin-bottom: 20px; */
+}
+.cic{
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(to bottom right,#4effff,#998fff);
+    /* border: 2px solid red; */
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    margin-top: 59px;
+    margin-left: 2px;
+}
+.O-box-i img{
+    width: 175px;
+    padding: 5px;
+    /* border: 10px solid red; */
+    /* background-color: red ;*/
+     /* border-radius: 70%; */
+}
+
+.o-box-cont{
+    text-align: center;
+    margin-top: 25px;
+    line-height: 1.6;
+}
+
+.o-box-cont p{
+    font-weight: bold;
+    background: linear-gradient(to bottom right,#4effff,#998fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

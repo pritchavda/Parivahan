@@ -1,0 +1,51 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.historyitem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(54,54,54,0.30);
+    padding: 10px 20px 10px 20px;
+    margin: 10px 10px;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.informationcont{
+    margin: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.driverimg{
+    margin-right: 25px;
+    
+}
+.driverInfo{
+    box-shadow: 0 1px 5px rgba(54,54,54,0.30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+.header{
+    background-color: #ffba41;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.header h3{
+    font-size: 25px;
+    margin-left: 30px;
+    color: white;
+}

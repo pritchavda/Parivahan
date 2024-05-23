@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link rel="stylesheet" href="../css/history.css">
+    <link rel="stylesheet" href="../css/singleuserinfo.css">
+    <!-- <link rel="stylesheet" href="../css/customermapm.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <!-- <link rel="stylesheet" href="../css/style2.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .leaflet-top .leaflet-control {
+            margin-top: 290px;
+        }
+
+        input:nth-child(1) {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body style='border:0; margin: 0; '>
+    <div id='map'></div>
+    <div class="container">
+        <div class="driverinff">
+            <div class="driverimg">
+                <img src="../img/blue.png"
+                    style="width: 125px; height: 125px; border-radius: 50%; padding: 10px; border: 2px solid #fec842;"
+                    id="driverimg" alt="">
+            </div>
+            <div class="driverName">
+                <p id="driverName"></p>
+                <p id="customerPhone"></p>
+            </div>
+        </div>
+        <!-- <div class="driverInfo" style="display:block; display: none;" id="driverInfoo">
+            <div class="driverimg">
+                <img src="../img/blue.png"
+                    style="width: 125px; height: 125px; border-radius: 50%; padding: 10px; border: 2px solid #fec842;"
+                    id="driverimg" alt="">
+            </div>
+            <div class="driverName">
+                <p id="driverName"></p>
+                <p id="car"></p>
+                <p id="service"></p>
+                <p id="customerPhone"></p>
+            </div>
+        </div> -->
+    </div>
+    </div>
+    <div class="customerPd">
+        <button id="pickupC" class="pikdro pik"  ><img src="../img/pick up.png" alt=""></button>
+        <button id="dropupC" class="pikdro dro" style="display: none;"><img src="../img/drop up.png" alt=""></button>
+    </div>
+    <h1>hiii</h1>
+</body>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=ejkE6YgilawBuKjkNEg5w3w7JwIH4cAE"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=ejkE6YgilawBuKjkNEg5w3w7JwIH4cAE"></script> -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
+    import { getDatabase, set, ref, update, get, child, onValue, push, remove } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-auth.js";
+    import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-storage.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDzU2LsVytDkMXwCidTmO-E4-Xbg62Mdb0",
+        authDomain: "parivahan-f7413.firebaseapp.com",
+        databaseURL: "https://parivahan-f7413-default-rtdb.firebaseio.com",
+        projectId: "parivahan-f7413",
+        storageBucket: "parivahan-f7413.appspot.com",
+        messagingSenderId: "127872997898",
+        appId: "1:127872997898:web:1910d19b13d17210fb9df3",
+        measurementId: "G-7VFN151RC8"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    const dbRef = ref(getDatabase());
+
+    var key = localStorage.getItem('singlehistotykey');
+    var historyarr = localStorage.getItem('historyarray')
+    const myArray = historyarr.split(",");
+    var pickupadd = JSON.parse(localStorage.getItem('pickupadd'));
+    console.log(pickupadd);
+    console.log(pickupadd[key][0]);
+    var fpickupaddkey = pickupadd[key][0];
+    var customrID;
+    var driverName;
+    var driverImgUrl;
+    var timeStamp;
+    var rating;
+    var pickuplat;
+    var pickuplng;
+    // var car;
+    // var service;
+    var customerPhone;
+    var droplat;
+    var droplng;
+    var picklat;
+    var picklng;
+    var droplocation;
+    var pickupcustomer;
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            get(child(dbRef, `multipelCustomerRequest/${myArray[key]}`)).then((snapshot) => {
+                if (snapshot.exists()) {
+                    console.log(snapshot.val());
+                    picklat = snapshot.val().pickuplat;
+                    picklng = snapshot.val().pikuplng;
+                    customrID = snapshot.val().customerRideId;
+                    droplat = snapshot.val().destinationLat;
+                    droplng = snapshot.val().destinaionLng;
+                    pickupcustomer = snapshot.val().pickupcustomer;
+                    droplocation = snapshot.val().destination;
+
+                    if (pickupcustomer == 'true') {
+                        document.getElementById('pickupC').style.display='none';
+                        document.getElementById('dropupC').style.display='inline';
+                    }
+                    
+                    getdriverInfo(customrID, droplat, droplng, picklat, picklng);
+                }
+                else {
+                }
+            }).catch((error) => {
+                console.error(error);
+            });
+
+
+        }
+    });
+
+    pickupC.addEventListener('click',()=>{
+        document.getElementById('pickupC').style.display='none';
+        document.getElementById('dropupC').style.display='inline';
+        console.log(myArray[key]);
+        update(ref(database,`multipelCustomerRequest/${myArray[key]}`),{
+                pickupcustomer:'true'
+        })
+    })
+    var person1;
+    var totalP;
+    var ftotalp;
+    dropupC.addEventListener('click',()=>{
+        alert('dropup customer');
+        document.getElementById('dropupC').style.display='none';
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                sethistory(user.uid);
+                get(child(dbRef, 'Users/'+'Customers/'+ customrID + "/"+"person")).then((snapshot) => {
+                if (snapshot.exists()) {
+                    person1= snapshot.val();
+                    get(child(dbRef, 'Users/'+'Drivers/'+ user.uid +"/"+"totalP")).then((snapshot) => {
+                        totalP = snapshot.val();
+                        ftotalp = totalP-person1;
+                        update(ref(database,'Users/'+'Drivers/'+ user.uid +"/"),{
+                            totalP:ftotalp 
+                        })
+                  })
+                }
+            })
+
+
+                remove(ref(database, 'Users/'+'Customers/'+ customrID + "/"+"person"))
+                .then(()=>{
+                    alert('personremove');
+                    // customerRideId = "";
+                })
+                .catch((error)=>{
+                    console.log(error);
+                })
+                remove(ref(database, 'Users/'+'Drivers/'+ user.uid + "/"+"customerRequest/"+"sharCustomer/"+myArray[key]))
+                .then(()=>{
+                    customrID = "";
+                })
+                .catch((error)=>{
+                    console.log(error);
+                })
+
+            }
+        })
+    })
+    function sethistory(uid) {
+
+        // A post entry.
+        const postData = {
+            customer:customrID,
+            driver:uid,
+            destination:droplocation,
+            ratingpath:0,
+            timeStamp:Math.round(Date.now()/1000)
+        };
+
+        // Get a key for a new Post.
+        const newPostKey = push(child(ref(database), 'history')).key;
+
+        // Write the new post's data simultaneously in the posts list and the user's post list.
+        const updates = {};
+        updates[database, 'Users/'+'Customers/'+ customrID + "/"+"history/"+newPostKey] = true;
+        updates[ 'Users/'+'Drivers/'+ uid + "/"+"history/"+newPostKey] = true;
+        // updates['history/'+newPostKey] = postData;
+        updates['history/'+newPostKey+'/'+'customer'] =customrID;
+        updates['history/'+newPostKey+'/'+'driver'] =uid;
+        updates['history/'+newPostKey+'/'+'destination'] =droplocation;
+        updates['history/'+newPostKey+'/'+'rating'] =0;
+        updates['history/'+newPostKey+'/'+'timeStamp'] =Math.round(Date.now()/1000);
+
+        addloctioninhistory(newPostKey);
+        return update(ref(database), updates);
+    
+}
+    function addloctioninhistory(key){
+        alert(key);
+        update(ref(database, 'history/'+key +'/'+'location/'+'form'),{
+                lat:picklat,
+                lng:picklng
+            })
+            update(ref(database, 'history/'+key+'/'+'location/'+'to'),{
+                lat:droplat,
+                lng:droplng
+            })
+            location.replace("driverMapActivity.html");
+    }
+    function getdriverInfo(customrID, droplat, droplng, picklat, picklng) {
+        get(child(dbRef, 'Users/' + 'Customers/' + customrID + "/")).then((snapshot) => {
+            if (snapshot.exists()) {
+                console.log(customrID);
+                console.log("driver", snapshot.val());
+                driverName = snapshot.val().name;
+                driverImgUrl = snapshot.val().profileImageUrl;
+                customerPhone = snapshot.val().phone;
+                // car = snapshot.val().car;
+                // service =snapshot.val().service;
+
+                getdropadd(droplat, droplng, picklat, picklng, fpickupaddkey, driverName, driverImgUrl, customerPhone)
+            }
+            else {
+            }
+        }).catch((error) => {
+            console.error(error);
+        });
+    }
+</script>
+
+<script>
+
+    // var ffpickupadd = alert('000000000000'+fpickupadd[key]);
+
+    function getdropadd(lat, lng, picklat, picklng, fpickupaddkey, driverName, driverImgUrl, customerPhone) {
+        var platform = new H.service.Platform({
+            'apikey': 'y_ZOv5v2wT9JxHHVNUB9u1vWxqs_GTTrihu5QpiYFUI'
+        });
+
+        // Get an instance of the search service:
+        var service = platform.getSearchService();
+
+        service.reverseGeocode({
+            // at: '23.081547,72.572243,100'
+            at: `${lat},${lng},100`
+        }, (result) => {
+            result.items.forEach((item) => {
+                setinforamaion(item.address.label, lat, lng, picklat, picklng, fpickupaddkey, driverName, driverImgUrl, customerPhone);
+            });
+        }, alert);
+
+    }
+
+    function setinforamaion(dropupadd, droplat, droplng, picklat, picklng, pickupadd, driverName, driverImgUrl, customerPhone) {
+
+        document.getElementById('driverName').innerHTML = `Driver Name : ${driverName}`
+        document.getElementById('customerPhone').innerHTML = `Phone No.: ${customerPhone}`
+        setdroplocaion(dropupadd, droplat, droplng);
+        setpiklocaion(pickupadd, picklat, picklng);
+        // document.getElementById('car').innerHTML = `Car : ${car}`
+        // document.getElementById('service').innerHTML = `Service : ${service}`
+        if (driverImgUrl != null) {
+            driverimg.src = driverImgUrl;
+        }
+    }
+
+
+
+
+
+</script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+<script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    function setpiklocaion(address, lat, lng) {
+        var DesMarker;
+        if (DesMarker) {
+            map.removeLayer(DriverMarker);
+        }
+        var Drivercustom_icon;
+        console.log(lat, lng);
+        Drivercustom_icon = L.icon({
+            iconUrl: '../img/pick up.png',
+                    iconSize: [60, 60],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [20, -20]
+        });
+        DesMarker = L.marker([lat, lng], { icon: Drivercustom_icon }).bindPopup(`<p><b>${address}<b></p>`);
+        // map = L.map('map').setView([lat,lng], 15);
+        var featureGroup = L.featureGroup([DesMarker]).addTo(map);
+        map.setView([lat, lng], 15);
+    }
+    function setdroplocaion(address, lat, lng) {
+        var DesMarker;
+        if (DesMarker) {
+            map.removeLayer(DriverMarker);
+        }
+        var Drivercustom_icon;
+        console.log(lat, lng);
+        Drivercustom_icon = L.icon({
+            iconUrl: '../img/drop up.png',
+                    iconSize: [40, 40],
+                    iconAnchor: [10, 29],
+                    popupAnchor: [8, -29]
+        });
+        DesMarker = L.marker([lat, lng], { icon: Drivercustom_icon }).bindPopup(`<p><b>${address}<b></p>`);
+        // map = L.map('map').setView([lat,lng], 15);
+        var featureGroup = L.featureGroup([DesMarker]).addTo(map);
+        map.setView([lat, lng], 15);
+    }
+
+</script>
+
+</html>

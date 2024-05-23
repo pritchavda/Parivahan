@@ -1,0 +1,75 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.historym{
+    margin-bottom: 20px;
+}
+.Mapbtn{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: 2px solid #fec842;
+    background-color: #fec842;
+    border-radius: 20px;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    width: 250px;
+    margin-top: 20px;
+}
+.navlogo2 img{
+    width: 230px;
+}
+.navbar{
+    margin: 0;
+    padding: 0;
+}
+.navcont2{
+    margin: 0 0 0 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: wheat; */
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+.navbtn{
+    margin-right: 20px;
+    padding: 6px 10px 6px 10px;
+    /* background-color: #fec842; */
+    /* font-size: 10px; */
+    /* font-weight: bold; */
+    border:  2px solid #fec842;
+    border-radius: 20px;
+}
+
+.userImg2 img{
+    padding: 10px;
+}
+.formclassinput{
+    margin-top: 10px;
+    border: 2px solid #fec842;
+    outline: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+.submitcustoinfo{
+    margin-top: 10px;
+    background-color: #fec842;
+    color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px ;
+}
+
+.nava:hover{
+    background-color: #fec842;
+    color: #fff !important;
+    border-radius: 30px;
+}
+.pikdro{
+    background-color: transparent;
+}
+.pikdro img{
+    width: 100px;
+}

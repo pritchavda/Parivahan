@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="enter text"
+        android:background="@drawable/eiditbackground"
+        android:layout_margin="10sp"
+        android:id="@+id/edit_text"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/recyclerview"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/nodata_found"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No DataFound"
+                android:layout_centerInParent="true"
+                android:textColor="#000"
+                android:textSize="17sp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

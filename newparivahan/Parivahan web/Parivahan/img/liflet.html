@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #map{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>    
+</body>
+</html>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
+<script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+
+   var osm=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+    osm.addTo(map);
+
+    if (!navigator.geolocation) {
+    console.log("your Brouser Doesn`t support geolocaion feature!");
+    }else{
+        setInterval(() => {
+            navigator.geolocation.getCurrentPosition(getpostion);
+        }, 5000);
+    }
+    var marker;
+    var circle;
+    function getpostion(postion) {
+        // console.log(postion);
+        var lat = postion.coords.latitude;
+        var lng = postion.coords.longitude;
+        var accuracy = postion.coords.accuracy;
+        if (marker) {
+            map.removeLayer(marker);
+        }
+        if (circle) {
+            map.removeLayer(circle);
+        }
+        marker = L.marker([lat,lng]);
+        circle = L.circle([lat,lng],{radius: accuracy});
+        var featureGroup = L.featureGroup([marker,circle]).addTo(map);
+        map.fitBounds(featureGroup.getBounds());
+        console.log("your information is : lat="+ lat+" lng="+lng+" accuracy="+accuracy);
+    }
+</script>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <link rel="stylesheet" href="../css/history.css">
+    <link rel="stylesheet" href="../css/singleuserinfo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .leaflet-top .leaflet-control {
+            margin-top: 290px;
+        }
+
+        input:nth-child(1) {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body style='border:0; margin: 0; '>
+    <div id='map'></div>
+    <div class="container">
+        <div class="driverinff">
+            <div class="driverimg">
+                <img src="../img/blue.png"
+                    style="width: 125px; height: 125px; border-radius: 50%; padding: 10px; border: 2px solid #fec842;"
+                    id="driverimg" alt="">
+            </div>
+            <div class="driverName">
+                <p id="driverName"></p>
+                <p id="customerPhone"></p>
+            </div>
+        </div>
+        <!-- <div class="driverInfo" style="display:block; display: none;" id="driverInfoo">
+            <div class="driverimg">
+                <img src="../img/blue.png"
+                    style="width: 125px; height: 125px; border-radius: 50%; padding: 10px; border: 2px solid #fec842;"
+                    id="driverimg" alt="">
+            </div>
+            <div class="driverName">
+                <p id="driverName"></p>
+                <p id="car"></p>
+                <p id="service"></p>
+                <p id="customerPhone"></p>
+            </div>
+        </div> -->
+    </div>
+    </div>
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
+    import { getDatabase, set, ref, update, get, child, onValue, push, remove } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-auth.js";
+    import { getStorage, ref as sRef, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-storage.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDzU2LsVytDkMXwCidTmO-E4-Xbg62Mdb0",
+        authDomain: "parivahan-f7413.firebaseapp.com",
+        databaseURL: "https://parivahan-f7413-default-rtdb.firebaseio.com",
+        projectId: "parivahan-f7413",
+        storageBucket: "parivahan-f7413.appspot.com",
+        messagingSenderId: "127872997898",
+        appId: "1:127872997898:web:1910d19b13d17210fb9df3",
+        measurementId: "G-7VFN151RC8"
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    const dbRef = ref(getDatabase());
+
+    
+    onAuthStateChanged(auth, (user) => {
+            if (user) {
+                get(child(dbRef, `Users/Drivers/${user.uid}/customerRequest/locations/`)).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        var deslat = snapshot.val().destinaionlat;
+                        var deslng = snapshot.val().destinaionlng;
+                        var piklat =snapshot.val().pickuplat;
+                        var piklng = snapshot.val().pickuplng;
+                        getdropadd(deslat,deslng,piklat,piklng);
+                    }
+                    alert('userinfosinglee')
+            })
+            }
+        });
+
+    </script>
+
+<script>
+
+    // var ffpickupadd = alert('000000000000'+fpickupadd[key]);
+    var deslngg = parseInt(localStorage.getItem('destinaionlng'));
+    var deslatt = parseInt(localStorage.getItem('destinaionlat'));
+  
+    function getdropadd(deslat,deslng,piklat,piklng) {
+        var platform = new H.service.Platform({
+            'apikey': '9LsiGN6o3M_GiaaNwbl6CftV_8GXbzMgj9faqLbdjKs'
+        });
+
+        // Get an instance of the search service:
+        var service = platform.getSearchService();
+
+        service.reverseGeocode({
+            // at: '23.081547,72.572243,100'
+            at: `${deslat},${deslng},100`
+        }, (result) => {
+            result.items.forEach((item) => {
+                setinforamaion(item.address.label,deslat,deslng,piklat,piklng);
+            });
+        }, alert);
+
+    }
+
+    function setinforamaion(dropupadd,deslat,deslng,piklat,piklng) {
+        alert(droplat+droplng)
+       var droplat = parseFloat(localStorage.getItem('destinaionlng'));
+       var droplng = parseFloat(localStorage.getItem('destinaionlat'));
+       var customerimg = localStorage.getItem('customerdestimg');
+       var phone= parseInt(localStorage.getItem('customerphone'));
+       var name= localStorage.getItem('customername');
+       var pickupadd = localStorage.getItem('customeradd');
+       var picklat = parseFloat(localStorage.getItem('pickuplng'));
+       var picklng = parseFloat(localStorage.getItem('pickuplat'));
+        alert(typeof localStorage.getItem('pickuplng'))
+
+        var person= localStorage.getItem('person');
+        console.log(person);
+        document.getElementById('driverName').innerHTML = `Driver Name : ${name}`
+        document.getElementById('customerPhone').innerHTML = `Phone No.: ${phone}`
+        setdroplocaion(dropupadd,deslat,deslng);
+        setpiklocaion(pickupadd,piklat,piklng);
+        // document.getElementById('car').innerHTML = `Car : ${car}`
+        // document.getElementById('service').innerHTML = `Service : ${service}`
+        if (customerimg != null) {
+            driverimg.src = customerimg;
+        }
+    }
+
+
+
+
+
+</script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+<script>
+    var map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    function setpiklocaion(address, lat, lng) {
+        var DesMarker;
+        if (DesMarker) {
+            map.removeLayer(DriverMarker);
+        }
+        var Drivercustom_icon;
+        console.log(lat, lng);
+        Drivercustom_icon = L.icon({
+            iconUrl: '../img/blue.png',
+            iconSize: [20, 29],
+            iconAnchor: [10, 29],
+            popupAnchor: [0, -29]
+        });
+        DesMarker = L.marker([lat, lng], { icon: Drivercustom_icon }).bindPopup(`<p><b>${address}<b></p>`);
+        // map = L.map('map').setView([lat,lng], 15);
+        var featureGroup = L.featureGroup([DesMarker]).addTo(map);
+        map.setView([lat, lng], 15);
+    }
+    function setdroplocaion(address, lat, lng) {
+        var DesMarker;
+        if (DesMarker) {
+            map.removeLayer(DriverMarker);
+        }
+        var Drivercustom_icon;
+        console.log(lat, lng);
+        Drivercustom_icon = L.icon({
+            iconUrl: '../img/blue.png',
+            iconSize: [20, 29],
+            iconAnchor: [10, 29],
+            popupAnchor: [0, -29]
+        });
+        DesMarker = L.marker([lat, lng], { icon: Drivercustom_icon }).bindPopup(`<p><b>${address}<b></p>`);
+        // map = L.map('map').setView([lat,lng], 15);
+        var featureGroup = L.featureGroup([DesMarker]).addTo(map);
+        map.setView([lat, lng], 15);
+    }
+
+</script>
+
+</html>
